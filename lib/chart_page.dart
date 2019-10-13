@@ -4,13 +4,17 @@ import 'package:flutter_app/repositories/repository.dart';
 import 'models/chart_with_title.dart';
 
 class ChartPage extends StatefulWidget {
+  final int selectedIndex;
+
+  ChartPage({Key key, this.selectedIndex}) : super(key: key);
+
   @override
   _ChartPageState createState() => _ChartPageState();
 }
 
 class _ChartPageState extends State<ChartPage> {
   List<ChartWithTitle> charts;
-  int selectedIndex = 0;
+  int _currentIndex;
 
   _ChartPageState() {
     var repository = Repository();
@@ -18,7 +22,7 @@ class _ChartPageState extends State<ChartPage> {
   }
 
   void changeIndex(int num) {
-    var newIndex = selectedIndex + num;
+    var newIndex = _currentIndex + num;
     if (newIndex < 0) {
       newIndex = charts.length - 1;
     }
@@ -26,8 +30,14 @@ class _ChartPageState extends State<ChartPage> {
       newIndex = 0;
     }
     setState(() {
-      selectedIndex = newIndex;
+      _currentIndex = newIndex;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.selectedIndex;
   }
 
   @override
@@ -36,7 +46,7 @@ class _ChartPageState extends State<ChartPage> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text(charts[selectedIndex].title),
+          title: Text(charts[_currentIndex].title),
         ),
         body: Row(
           children: <Widget>[
@@ -45,10 +55,10 @@ class _ChartPageState extends State<ChartPage> {
                 onPressed: () => this.changeIndex(-1),
                 child: Text('<'),
               ),
-              width: size.width * .09,
+              width: size.width * .1,
             ),
             Container(
-              child: charts[selectedIndex].widget,
+              child: charts[_currentIndex].widget,
               width: size.width * .8,
             ),
             Container(
@@ -56,7 +66,7 @@ class _ChartPageState extends State<ChartPage> {
                 onPressed: () => this.changeIndex(1),
                 child: Text('>'),
               ),
-              width: size.width * .09,
+              width: size.width * .1,
             )
           ],
         ));
