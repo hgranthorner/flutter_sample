@@ -1,9 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_app/repositories/repository.dart';
 
-import 'charts/simple_chart.dart';
-import 'charts/simple_time_series.dart';
-import 'charts/stacked_line_chart.dart';
 import 'models/chart_with_title.dart';
 
 class ChartPage extends StatefulWidget {
@@ -12,31 +9,22 @@ class ChartPage extends StatefulWidget {
 }
 
 class _ChartPageState extends State<ChartPage> {
-  List<ChartWithTitle> charts = [
-    ChartWithTitle(
-        widget: SimpleBarChart.withSampleData(), title: 'Simple Bar Chart'),
-    ChartWithTitle(
-      widget: SimpleTimeSeriesChart.withSampleData(),
-      title: 'Simple Time Series',
-    ),
-    ChartWithTitle(
-      widget: StackedAreaLineChart.withSampleData(),
-      title: 'Stacked Area Line Chart',
-    )
-  ];
-
+  List<ChartWithTitle> charts;
   int selectedIndex = 0;
+
+  _ChartPageState() {
+    var repository = Repository();
+    charts = repository.getCharts();
+  }
 
   void changeIndex(int num) {
     var newIndex = selectedIndex + num;
-    print('New index before: ' + newIndex.toString());
     if (newIndex < 0) {
       newIndex = charts.length - 1;
     }
     if (newIndex > charts.length - 1) {
       newIndex = 0;
     }
-    print('New index after: ' + newIndex.toString());
     setState(() {
       selectedIndex = newIndex;
     });
@@ -47,7 +35,8 @@ class _ChartPageState extends State<ChartPage> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
-          title: Center(child: Text(charts[selectedIndex].title)),
+          centerTitle: true,
+          title: Text(charts[selectedIndex].title),
         ),
         body: Row(
           children: <Widget>[
