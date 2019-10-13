@@ -1,24 +1,10 @@
+
 import 'package:flutter/material.dart';
 
 import 'charts/simple_chart.dart';
 import 'charts/simple_time_series.dart';
 import 'charts/stacked_line_chart.dart';
 import 'models/chart_with_title.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: ChartPage());
-  }
-}
 
 class ChartPage extends StatefulWidget {
   @override
