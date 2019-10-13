@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/repositories/repository.dart';
+import 'package:flutter_app/repositories/Repository.dart';
 
-import 'models/chart_with_title.dart';
+import 'models/ChartWithTitle.dart';
 
 class ChartPage extends StatefulWidget {
   final int selectedIndex;

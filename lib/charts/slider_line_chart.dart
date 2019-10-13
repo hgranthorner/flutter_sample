@@ -125,7 +125,7 @@ class _SliderCallbackState extends State<SliderLine> {
     if (_sliderDomainValue != null) {
       children.add(new Padding(
           padding: new EdgeInsets.only(top: 5.0),
-          child: new Text('Slider domain value: ${_sliderDomainValue}')));
+          child: new Text('Slider domain value: $_sliderDomainValue')));
     }
     if (_sliderPosition != null) {
       children.add(new Padding(
@@ -136,7 +136,7 @@ class _SliderCallbackState extends State<SliderLine> {
     if (_sliderDragState != null) {
       children.add(new Padding(
           padding: new EdgeInsets.only(top: 5.0),
-          child: new Text('Slider drag state: ${_sliderDragState}')));
+          child: new Text('Slider drag state: $_sliderDragState')));
     }
 
     return new Column(children: children);

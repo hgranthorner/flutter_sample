@@ -12,8 +12,7 @@ class StackedAreaLineChart extends StatelessWidget {
   factory StackedAreaLineChart.withSampleData() {
     return new StackedAreaLineChart(
       _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
+      animate: true,
     );
   }
 

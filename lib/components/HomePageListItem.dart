@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/chart_page.dart';
-import 'package:flutter_app/models/chart_with_title.dart';
-
+import 'package:flutter_app/ChartPage.dart';
+import 'package:flutter_app/models/ChartWithTitle.dart';
 
 class HomePageListItem extends StatelessWidget {
   final ChartWithTitle chart;
@@ -19,16 +18,19 @@ class HomePageListItem extends StatelessWidget {
             chart.title,
             style: TextStyle(fontSize: 24),
           ),
-          RaisedButton(
+          OutlineButton(
             child: Text('View Chart'),
             onPressed: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => ChartPage(
-                        selectedIndex: index,
-                      )));
+                            selectedIndex: index,
+                          )));
             },
+            borderSide: BorderSide(
+                color: Colors.blue, style: BorderStyle.solid, width: 2),
+            color: Colors.grey,
           ),
         ],
       ),
@@ -40,5 +42,4 @@ class HomePageListItem extends StatelessWidget {
       width: MediaQuery.of(context).size.width * .8,
     );
   }
-
 }

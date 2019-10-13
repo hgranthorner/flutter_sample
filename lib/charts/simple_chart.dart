@@ -11,8 +11,7 @@ class SimpleBarChart extends StatelessWidget {
   factory SimpleBarChart.withSampleData() {
     return new SimpleBarChart(
       _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
+      animate: true,
     );
   }
 

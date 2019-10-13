@@ -4,7 +4,7 @@ import 'package:flutter_app/charts/simple_chart.dart';
 import 'package:flutter_app/charts/simple_time_series.dart';
 import 'package:flutter_app/charts/slider_line_chart.dart';
 import 'package:flutter_app/charts/stacked_line_chart.dart';
-import 'package:flutter_app/models/chart_with_title.dart';
+import 'package:flutter_app/models/ChartWithTitle.dart';
 
 class Repository {
   List<ChartWithTitle> _charts = [

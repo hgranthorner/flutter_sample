@@ -11,8 +11,7 @@ class GroupedStackedBarChart extends StatelessWidget {
   factory GroupedStackedBarChart.withSampleData() {
     return new GroupedStackedBarChart(
       createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
+      animate: true,
     );
   }
 
