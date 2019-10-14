@@ -53,7 +53,11 @@ class _ChartPageState extends State<ChartPage> {
             Container(
               child: RaisedButton(
                 onPressed: () => this.changeIndex(-1),
-                child: Text('<'),
+                child: Text(
+                  '<',
+                  style: TextStyle(color: Colors.white),
+                ),
+                color: Colors.blue,
               ),
               width: size.width * .1,
             ),
@@ -64,7 +68,11 @@ class _ChartPageState extends State<ChartPage> {
             Container(
               child: RaisedButton(
                 onPressed: () => this.changeIndex(1),
-                child: Text('>'),
+                child: Text(
+                  '>',
+                  style: TextStyle(color: Colors.white),
+                ),
+                color: Colors.blue,
               ),
               width: size.width * .1,
             )

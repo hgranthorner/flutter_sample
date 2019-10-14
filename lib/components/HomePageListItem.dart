@@ -18,8 +18,11 @@ class HomePageListItem extends StatelessWidget {
             chart.title,
             style: TextStyle(fontSize: 24),
           ),
-          OutlineButton(
-            child: Text('View Chart'),
+          RaisedButton(
+            child: Text(
+              'View Chart',
+              style: TextStyle(color: Colors.white),
+            ),
             onPressed: () {
               Navigator.push(
                   context,
@@ -28,9 +31,7 @@ class HomePageListItem extends StatelessWidget {
                             selectedIndex: index,
                           )));
             },
-            borderSide: BorderSide(
-                color: Colors.blue, style: BorderStyle.solid, width: 2),
-            color: Colors.grey,
+            color: Colors.blue,
           ),
         ],
       ),

@@ -12,10 +12,13 @@ class LoginPage extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Form(
-            child: TextFormField(
-              validator: (value) =>
-                  value.isEmpty ? 'Please enter some text' : null,
-              decoration: InputDecoration(labelText: 'Email'),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: TextFormField(
+                validator: (value) =>
+                    value.isEmpty ? 'Please enter some text' : null,
+                decoration: InputDecoration(labelText: 'Email'),
+              ),
             ),
           ),
           Padding(
@@ -25,7 +28,11 @@ class LoginPage extends StatelessWidget {
                 Navigator.pushNamedAndRemoveUntil(
                     context, Routes.homeRoute.route, (r) => false);
               },
-              child: Text('Login'),
+              child: Text(
+                'Login',
+                style: TextStyle(color: Colors.white),
+              ),
+              color: Colors.blue,
             ),
           )
         ],
